@@ -1,6 +1,10 @@
 {
   "rootDirectory": "zuche-web",
-  "installCommand": "cd zuche-web && npm install",
-  "buildCommand": "cd zuche-web && chmod 777 node_modules/.bin/* && npm run build",
-  "outputDirectory": "zuche-web/dist"
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
