@@ -1,0 +1,1 @@
+import{K as r}from"./index-I6KLP0h_.js";const a={getHotCars:(e=6)=>r.get("/recommend/hot",{params:{limit:e}}),getRecommendForUser:(e=6)=>r.get("/recommend/for-user",{params:{limit:e}}),getSimilarCars:(e,m=4)=>r.get(`/recommend/similar/${e}`,{params:{limit:m}})};export{a as r};

@@ -1,0 +1,16 @@
+com\zuche\test\auth\AuthTest.class
+com\zuche\test\car\CarBrowseTest.class
+com\zuche\test\order\OrderBookingFixedTest.class
+com\zuche\test\base\BaseTest.class
+com\zuche\test\report\TestReportGenerator$TestCaseResult.class
+com\zuche\test\order\OrderBookingWorkingTest.class
+com\zuche\test\order\OrderManageTest.class
+com\zuche\test\order\OrderBookingTest.class
+com\zuche\test\store\StoreOrderManageTest.class
+com\zuche\test\report\TestReportGenerator.class
+com\zuche\test\homepage\HomePageTest.class
+com\zuche\test\admin\AdminOrderManageTest.class
+com\zuche\test\order\OrderBookingFinalTest.class
+com\zuche\test\admin\AdminCarManageTest.class
+com\zuche\test\base\BaseTest$1.class
+com\zuche\test\order\OrderBookingSimpleTest.class

@@ -1,0 +1,442 @@
+@import './variables.scss';
+
+// ==========================================
+// 全局重置与基础样式
+// ==========================================
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background-color: $bg-secondary;
+  line-height: $line-height-normal;
+}
+
+// ==========================================
+// 链接样式
+// ==========================================
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+// ==========================================
+// 列表重置
+// ==========================================
+
+ul, ol {
+  list-style: none;
+}
+
+// ==========================================
+// 图片优化
+// ==========================================
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+// ==========================================
+// 布局容器
+// ==========================================
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  
+  @include responsive(md) {
+    padding: 0 $spacing-md;
+  }
+}
+
+// ==========================================
+// 页面标题
+// ==========================================
+
+.page-header {
+  margin-bottom: $spacing-xl;
+  
+  .title {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+  }
+  
+  .subtitle {
+    margin-top: $spacing-sm;
+    font-size: $font-size-base;
+    color: $text-tertiary;
+  }
+}
+
+// ==========================================
+// 卡片组件
+// ==========================================
+
+.card {
+  @include card-base;
+  padding: $spacing-lg;
+  
+  &.card-hover {
+    @include card-hover;
+  }
+}
+
+// ==========================================
+// 按钮增强
+// ==========================================
+
+.btn-primary {
+  background: $gradient-primary;
+  border: none;
+  color: #fff;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-normal;
+  box-shadow: $shadow-primary;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-primary-lg;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ==========================================
+// 文本工具类
+// ==========================================
+
+.text-primary { color: $primary-color !important; }
+.text-secondary { color: $text-secondary !important; }
+.text-tertiary { color: $text-tertiary !important; }
+.text-success { color: $success-color !important; }
+.text-warning { color: $warning-color !important; }
+.text-danger { color: $danger-color !important; }
+.text-info { color: $info-color !important; }
+
+.text-gradient {
+  @include gradient-text;
+}
+
+// ==========================================
+// 间距工具类
+// ==========================================
+
+@for $i from 1 through 10 {
+  .mt-#{$i * 5} { margin-top: #{$i * 5}px !important; }
+  .mb-#{$i * 5} { margin-bottom: #{$i * 5}px !important; }
+  .ml-#{$i * 5} { margin-left: #{$i * 5}px !important; }
+  .mr-#{$i * 5} { margin-right: #{$i * 5}px !important; }
+  .pt-#{$i * 5} { padding-top: #{$i * 5}px !important; }
+  .pb-#{$i * 5} { padding-bottom: #{$i * 5}px !important; }
+  .pl-#{$i * 5} { padding-left: #{$i * 5}px !important; }
+  .pr-#{$i * 5} { padding-right: #{$i * 5}px !important; }
+}
+
+// ==========================================
+// Flex 布局工具类
+// ==========================================
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+.flex-auto { flex: auto; }
+.flex-none { flex: none; }
+
+.flex-center { @include flex-center; }
+.flex-between { @include flex-between; }
+.flex-start { justify-content: flex-start; }
+.flex-end { justify-content: flex-end; }
+.flex-around { justify-content: space-around; }
+.flex-evenly { justify-content: space-evenly; }
+
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+.gap-xs { gap: $spacing-xs; }
+.gap-sm { gap: $spacing-sm; }
+.gap-md { gap: $spacing-md; }
+.gap-lg { gap: $spacing-lg; }
+.gap-xl { gap: $spacing-xl; }
+
+// ==========================================
+// Grid 布局工具类
+// ==========================================
+
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+// ==========================================
+// 文本截断
+// ==========================================
+
+.ellipsis { @include text-ellipsis; }
+.clamp-2 { @include text-clamp(2); }
+.clamp-3 { @include text-clamp(3); }
+
+// ==========================================
+// Element Plus 样式覆盖
+// ==========================================
+
+.el-button--primary {
+  background: $primary-color !important;
+  border-color: $primary-color !important;
+  
+  &:hover, &:focus {
+    background: $primary-light !important;
+    border-color: $primary-light !important;
+  }
+  
+  &:active {
+    background: $primary-dark !important;
+    border-color: $primary-dark !important;
+  }
+}
+
+.el-button--primary.is-plain {
+  color: $primary-color !important;
+  background: rgba($primary-color, 0.1) !important;
+  border-color: rgba($primary-color, 0.3) !important;
+  
+  &:hover {
+    background: $primary-color !important;
+    color: #fff !important;
+    border-color: $primary-color !important;
+  }
+}
+
+.el-input__wrapper {
+  border-radius: $radius-md !important;
+  box-shadow: 0 0 0 1px $border-color inset !important;
+  transition: all $transition-fast !important;
+  
+  &:hover {
+    box-shadow: 0 0 0 1px $primary-light inset !important;
+  }
+  
+  &.is-focus {
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2), 0 0 0 1px $primary-color inset !important;
+  }
+}
+
+.el-select__wrapper {
+  border-radius: $radius-md !important;
+}
+
+.el-card {
+  border-radius: $radius-lg !important;
+  border: none !important;
+  box-shadow: $shadow-card !important;
+}
+
+.el-dialog {
+  border-radius: $radius-xl !important;
+  overflow: hidden;
+  
+  .el-dialog__header {
+    padding: $spacing-lg $spacing-xl;
+    border-bottom: 1px solid $border-light;
+    margin-right: 0;
+    
+    .el-dialog__title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+    }
+  }
+  
+  .el-dialog__body {
+    padding: $spacing-xl;
+  }
+  
+  .el-dialog__footer {
+    padding: $spacing-md $spacing-xl $spacing-lg;
+    border-top: 1px solid $border-light;
+  }
+}
+
+.el-message-box {
+  border-radius: $radius-lg !important;
+}
+
+.el-tag {
+  border-radius: $radius-sm !important;
+  font-weight: $font-weight-medium;
+}
+
+.el-pagination {
+  .el-pager li {
+    border-radius: $radius-md !important;
+  }
+  
+  .btn-prev, .btn-next {
+    border-radius: $radius-md !important;
+  }
+}
+
+.el-tabs__item {
+  font-weight: $font-weight-medium;
+  
+  &.is-active {
+    color: $primary-color;
+  }
+}
+
+.el-form-item__label {
+  font-weight: $font-weight-medium;
+  color: $text-secondary;
+}
+
+.el-table {
+  border-radius: $radius-lg !important;
+  overflow: hidden;
+  
+  th.el-table__cell {
+    background: $bg-tertiary !important;
+    font-weight: $font-weight-semibold;
+    color: $text-secondary;
+  }
+}
+
+.el-menu {
+  border-right: none !important;
+}
+
+// ==========================================
+// 滚动条美化
+// ==========================================
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-tertiary;
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $text-disabled;
+  border-radius: $radius-full;
+  
+  &:hover {
+    background: $text-tertiary;
+  }
+}
+
+// ==========================================
+// 选中文本样式
+// ==========================================
+
+::selection {
+  background: rgba($primary-color, 0.2);
+  color: $primary-dark;
+}
+
+// ==========================================
+// 动画关键帧
+// ==========================================
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// 动画类
+.animate-fadeIn { animation: fadeIn 0.3s ease; }
+.animate-fadeInUp { animation: fadeInUp 0.4s ease; }
+.animate-fadeInDown { animation: fadeInDown 0.4s ease; }
+.animate-slideInLeft { animation: slideInLeft 0.4s ease; }
+.animate-pulse { animation: pulse 2s infinite; }
+.animate-bounce { animation: bounce 1s infinite; }

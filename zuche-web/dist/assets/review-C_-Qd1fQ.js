@@ -1,0 +1,1 @@
+import{K as t}from"./index-I6KLP0h_.js";const i={getList:e=>t.get("/reviews",{params:e}),getDetail:e=>t.get(`/reviews/${e}`),create:e=>t.post("/reviews",e),delete:e=>t.delete(`/reviews/${e}`),getCarReviews:e=>t.get(`/reviews/car/${e}`)};export{i as reviewApi};
